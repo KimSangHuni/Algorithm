@@ -20,22 +20,16 @@ function solution(friends, gifts) {
         const toIndex = friendsList[to];
         const fromIndex = friendsList[from];
         
-        // log
-        table[toIndex][fromIndex] += 1;
+        table[toIndex][fromIndex]++;
+        score[toIndex]++;
         
-        // score
-        score[toIndex] += 1;
-        score[fromIndex] -= 1;
+        score[fromIndex]--;
     });
     
     for(let to = 0; to < friends.length; to++) {
         for(let from = to; from < friends.length; from++) {
             if(to === from) continue;
-            console.log(friends[to], friends[from])
-            
-            // 두명이 같을 때
             if(table[to][from] === table[from][to]) {
-                // 선물지수 비교
                 if(score[to] === score[from]) continue;
                  answer[score[to] < score[from] ? from : to]++;
             }
