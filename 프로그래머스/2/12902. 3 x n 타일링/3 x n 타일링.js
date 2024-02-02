@@ -6,11 +6,12 @@ function solution(n) {
     let table = [0, 3, 11];
     
     for(let i = 3; i <= n / 2; i++) {
-        let total = table.at(-1) * 3;
-        for(let j = table.length - 2 ; j > 0; j--) {
+        let total = table[i-1] * 3;
+        
+        for(let j = i-2 ; j > 0 ; j--) {
             total += table[j] * 2;
         }
-        table.push((total + 2) % DIV);
+        table[i] =(total + 2) % DIV;
     }
     
     return table.at(-1);
