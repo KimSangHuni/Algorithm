@@ -3,9 +3,7 @@ class Solution {
         var answer: Int = 0
         val sortedTarget = targets.sortedBy { it[1] }
         
-        var s = 0
         var e = 0
-        
         for(target in sortedTarget) {
             if(e <= target[0]) {
                 answer += 1
